@@ -1,4 +1,6 @@
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
+import { IUser } from '../user/user.interface';
+
 export type ILocation =
   | 'Dhaka'
   | "Chattogram"
@@ -23,15 +25,19 @@ export type ICategory =
   | 'Beef'
   | 'DualPurpose'
 
+type ILabel =
+  | 'for sell'
+  | 'sold out';
+
 export type ICow = {
   name: string;
   age: number;
   location: ILocation;
   breed: IBreed;
   weight: number;
-  label: 'for sell' | 'sold out';
+  label: ILabel;
   category: string;
-  seller: string;
+  seller: Types.ObjectId | IUser;
 }
 
 export type CowModel = Model<ICow, Record<string, unknown>>;
