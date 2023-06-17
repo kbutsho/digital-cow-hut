@@ -20,7 +20,7 @@ const getAllUser: RequestHandler = catchAsync(async (req: Request, res: Response
   sendResponse<IUser[]>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "Users retrieved successfully",
+    message: `${result.length} users retrieved successfully`,
     data: result,
   });
 })
