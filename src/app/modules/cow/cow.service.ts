@@ -12,15 +12,15 @@ const create = async (data: ICow): Promise<ICow> => {
 }
 
 const getAllCow = async (filters: ICowFilters, paginationOptions: IPaginationOptions): Promise<IGenericResponse<ICow[]>> => {
-  const { query, ...filtersData } = filters;
+  const { searchTerm, ...filtersData } = filters;
   const { page, limit, skip, sortBy, sortOrder } = paginationHelpers.calculatePagination(paginationOptions);
   const andConditions = [];
 
-  if (query) {
+  if (searchTerm) {
     andConditions.push({
       $or: cowSearchableFields.map(field => ({
         [field]: {
-          $regex: query,
+          $regex: searchTerm,
           $options: 'i',
         },
       })),

@@ -29,14 +29,14 @@ const create = (data) => __awaiter(void 0, void 0, void 0, function* () {
     return result;
 });
 const getAllCow = (filters, paginationOptions) => __awaiter(void 0, void 0, void 0, function* () {
-    const { query } = filters, filtersData = __rest(filters, ["query"]);
+    const { searchTerm } = filters, filtersData = __rest(filters, ["searchTerm"]);
     const { page, limit, skip, sortBy, sortOrder } = paginationHelper_1.paginationHelpers.calculatePagination(paginationOptions);
     const andConditions = [];
-    if (query) {
+    if (searchTerm) {
         andConditions.push({
             $or: cow_constant_1.cowSearchableFields.map(field => ({
                 [field]: {
-                    $regex: query,
+                    $regex: searchTerm,
                     $options: 'i',
                 },
             })),

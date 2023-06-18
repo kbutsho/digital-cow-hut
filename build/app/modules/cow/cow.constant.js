@@ -26,4 +26,4 @@ exports.cowCategory = [
     'DualPurpose'
 ];
 exports.cowSearchableFields = ['location', 'breed', 'category'];
-exports.cowFilterableFields = ['query', 'location', 'breed', 'category'];
+exports.cowFilterableFields = ['searchTerm', 'location', 'breed', 'category'];

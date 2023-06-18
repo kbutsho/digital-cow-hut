@@ -28,6 +28,6 @@ export const cowCategory: ICategory[] = [
 ];
 
 export const cowSearchableFields = ['location', 'breed', 'category'];
-export const cowFilterableFields = ['query', 'location', 'breed', 'category'];
+export const cowFilterableFields = ['searchTerm', 'location', 'breed', 'category'];
 
 
