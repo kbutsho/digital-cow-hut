@@ -45,7 +45,7 @@ const updateCowZodSchema = z.object({
     }).optional(),
     weight: z.number({
       required_error: 'weight is required!',
-    }),
+    }).optional(),
     label: z.string({
       required_error: 'label is required!',
     }).optional(),

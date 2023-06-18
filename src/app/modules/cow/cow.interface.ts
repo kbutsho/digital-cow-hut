@@ -32,6 +32,7 @@ type ILabel =
 export type ICow = {
   name: string;
   age: number;
+  price: number;
   location: ILocation;
   breed: IBreed;
   weight: number;
@@ -41,4 +42,6 @@ export type ICow = {
 }
 
 export type CowModel = Model<ICow, Record<string, unknown>>;
+export type ICowFilters = { query?: string };
+
 

@@ -4,7 +4,7 @@ import { CowController } from './cow.controller';
 import { CowValidation } from './cow.validation';
 const router = express.Router();
 
-router.post('/create', validateRequest(CowValidation.createCowZodSchema), CowController.createCow);
+router.post('/', validateRequest(CowValidation.createCowZodSchema), CowController.createCow);
 router.get('/:id', CowController.getSingleCow);
 router.patch('/:id', validateRequest(CowValidation.updateCowZodSchema), CowController.updateCow);
 router.delete('/:id', CowController.deleteCow)

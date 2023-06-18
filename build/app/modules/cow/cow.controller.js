@@ -17,6 +17,9 @@ const catchAsync_1 = __importDefault(require("../../../shared/catchAsync"));
 const cow_service_1 = require("./cow.service");
 const sendResponse_1 = __importDefault(require("../../../shared/sendResponse"));
 const http_status_1 = __importDefault(require("http-status"));
+const pick_1 = __importDefault(require("../../../shared/pick"));
+const cow_constant_1 = require("./cow.constant");
+const pagination_1 = require("../../../constants/pagination");
 const createCow = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield cow_service_1.CowService.create(req.body);
     (0, sendResponse_1.default)(res, {
@@ -27,12 +30,15 @@ const createCow = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void
     });
 }));
 const getAllCow = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield cow_service_1.CowService.getAllCow();
+    const filters = (0, pick_1.default)(req.query, cow_constant_1.cowFilterableFields);
+    const paginationOptions = (0, pick_1.default)(req.query, pagination_1.paginationFields);
+    const result = yield cow_service_1.CowService.getAllCow(filters, paginationOptions);
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
-        message: `${result.length} cows retrieved successfully`,
-        data: result,
+        message: `${result.data.length} out of ${result.meta.total} cows  retrieved successfully!`,
+        meta: result.meta,
+        data: result.data
     });
 }));
 const getSingleCow = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {

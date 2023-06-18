@@ -27,5 +27,7 @@ export const cowCategory: ICategory[] = [
   'DualPurpose'
 ];
 
+export const cowSearchableFields = ['location', 'breed', 'category'];
+export const cowFilterableFields = ['query', 'location', 'breed', 'category'];
 
 

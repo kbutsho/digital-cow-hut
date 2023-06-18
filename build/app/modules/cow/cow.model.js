@@ -12,6 +12,10 @@ const cowSchema = new mongoose_1.Schema({
         type: Number,
         required: true,
     },
+    price: {
+        type: Number,
+        required: true,
+    },
     location: {
         type: String,
         required: true,

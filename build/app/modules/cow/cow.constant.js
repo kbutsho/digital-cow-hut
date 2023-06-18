@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.cowCategory = exports.cowBreed = exports.cowLocation = void 0;
+exports.cowFilterableFields = exports.cowSearchableFields = exports.cowCategory = exports.cowBreed = exports.cowLocation = void 0;
 exports.cowLocation = [
     'Dhaka',
     "Chattogram",
@@ -25,3 +25,5 @@ exports.cowCategory = [
     'Beef',
     'DualPurpose'
 ];
+exports.cowSearchableFields = ['location', 'breed', 'category'];
+exports.cowFilterableFields = ['query', 'location', 'breed', 'category'];
